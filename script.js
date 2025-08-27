@@ -1,11 +1,12 @@
 // --- Firebase Configuration ---
 const firebaseConfig = {
-  apiKey: "AIzaSyBci7oy9vzE-T2_FDD4cCuNUQjuEK0i2no",
-  authDomain: "jmps-library-booking.firebaseapp.com",
-  projectId: "jmps-library-booking",
-  storageBucket: "jmps-library-booking.firebasestorage.app",
-  messagingSenderId: "797656215545",
-  appId: "1:797656215545:web:ac92e5f559dcd42b151728"
+  apiKey: "AIzaSyAc5MI6We-Y5DGMrhCxT13LCjYPyEf2oZM",
+  authDomain: "sherwoodlibrary-24f55.firebaseapp.com",
+  projectId: "sherwoodlibrary-24f55",
+  storageBucket: "sherwoodlibrary-24f55.firebasestorage.app",
+  messagingSenderId: "807476186231",
+  appId: "1:807476186231:web:155a816d2d011db6ba8a72",
+  measurementId: "G-1GXQ7N421W"
 };
 
 // --- App Configuration ---
