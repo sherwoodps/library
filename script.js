@@ -1368,21 +1368,6 @@ function toggleEndCondition() {
     occurrencesContainer.classList.toggle('hidden', !endTypeAfter.checked);
 }
 
-const OriginalDate = Date;
-Date = class extends OriginalDate {
-    constructor(...args) {
-        if (args.length === 0) {
-            // When new Date() is called with no arguments, return our fake date
-            return new OriginalDate('2025-09-02T12:00:00');
-        }
-        return new OriginalDate(...args);
-    }
-    
-    static now() {
-        return new OriginalDate('2025-09-02T12:00:00').getTime();
-    }
-};
-
 async function handleRecurringIconClick(seriesId) {
     const user = auth.currentUser;
     // Check if the current user is in the admin list
