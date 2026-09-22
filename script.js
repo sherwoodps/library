@@ -14,8 +14,8 @@ const ALLOWED_DOMAIN = "ddsb.ca";
 const ADMIN_EMAILS = ["petelind3875@ddsb.ca", "peteaaro2483@ddsb.ca"];
 
 const PERIOD_TIMES = ["8:55 - 9:25", "9:25 - 9:55", "9:55 - 10:25", "10:40 - 11:10", "11:10 - 11:40", "12:30 - 1:00", "1:00 - 1:30", "1:30 - 2:00", "2:15 - 2:45", "2:45 - 3:15"];
-const BOOKING_REASONS = ["Book Exchange", "Partnering", "Presentation", "Closed", "Other"];
-const REASON_ICONS = { "Book Exchange": "book_2", "Partnering": "group", "Presentation": "co_present", "Closed": "event_busy", "Other": "calendar_check" };
+const BOOKING_REASONS = ["Literacy Partnering", "Project Partnering", "Presentation", "Closed", "Other"];
+const REASON_ICONS = { "Literacy Partnering": "book_2", "Project Partnering": "group", "Presentation": "co_present", "Closed": "event_busy", "Other": "calendar_check" };
 const SCHOOL_CALENDAR = {
   // September 2026
   "9/2/2026": "PA Day",
