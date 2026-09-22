@@ -525,7 +525,7 @@ async function openAdminPanel() {
 
 function populateReasonOptions() {
     reasonOptionsContainer.innerHTML = ''; // Clear previous options
-    BOOKING_REASONS.forEach(reason => {
+    BOOKING_REASONS.forEach((reason, index) => {
         const div = document.createElement('div');
         div.className = 'flex items-center';
         const input = document.createElement('input');
@@ -534,7 +534,7 @@ function populateReasonOptions() {
         input.value = reason;
         input.id = `reason-${reason.replace(/\s+/g, '')}`;
         input.className = 'h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500';
-        if (reason === "Book Exchange") input.checked = true;
+        if (index === 0) input.checked = true;
         const label = document.createElement('label');
         label.htmlFor = input.id;
         label.textContent = reason;
@@ -553,9 +553,10 @@ function populateReasonOptions() {
 function showBookingModal(dayNumber, startPeriod, dateString) {
     bookingForm.reset();
     delete bookingForm.dataset.recordId;
-    document.getElementById('teacher-name').value = auth.currentUser.displayName;
+    document.getElementById('teacher-name').value = auth.currentUser ? (auth.currentUser.displayName || '') : '';
     otherReasonInput.style.display = 'none';
-    document.querySelector('input[name="bookingReason"][value="Book Exchange"]').checked = true;
+    const defaultReasonInput = document.querySelector(`input[name="bookingReason"][value="${BOOKING_REASONS[0]}"]`) || document.querySelector('input[name="bookingReason"]');
+    if (defaultReasonInput) defaultReasonInput.checked = true;
     document.getElementById('start-period-container').classList.add('hidden');
     deleteBookingBtn.classList.add('hidden');
 
@@ -620,7 +621,7 @@ async function showEditModal(recordId, isDetached = false) {
             StartPeriod: currentStart, 
             EndPeriod: currentEnd = currentStart,
             TeacherName: teacherName = '',
-            BookingReason: bookingReason = 'Book Exchange'
+            BookingReason: bookingReason = BOOKING_REASONS[0]
         } = recordToEdit.fields;
 
         // Step 2: Fetch ALL other bookings for that same day to check for conflicts
@@ -1496,7 +1497,7 @@ async function openManageRecurringPanel(recordIdToHighlight = null) {
             li.innerHTML = `
                 <div>
                     <div class="font-semibold text-gray-900">${TeacherName}</div>
-                    <div class="text-sm text-gray-600">${BookingReason || 'Book Exchange'}</div>
+                    <div class="text-sm text-gray-600">${BookingReason || BOOKING_REASONS[0]}</div>
                     <div class="text-sm text-gray-500">${daysText} ${endText}</div>
                 </div>
                 <div class="flex items-center gap-2">
